@@ -1,0 +1,42 @@
+{
+  "name": "gatsby-template-adr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
+    "enquirer": "^2.3.6",
+    "gatsby": "^2.24.49",
+    "gatsby-plugin-emotion": "^4.3.10",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sharp": "^2.6.28",
+    "gatsby-remark-copy-linked-files": "^2.3.14",
+    "gatsby-remark-images": "^3.3.26",
+    "gatsby-remark-prismjs": "^3.5.11",
+    "gatsby-source-filesystem": "^2.3.25",
+    "gatsby-transformer-remark": "^2.8.29",
+    "prismjs": "^1.21.0",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "slugify": "^1.4.6"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "deploy": "gatsby build --prefix-paths && gh-pages -f -d public",
+    "lint": "eslint ./src --ext .ts,.tsx,.js,.jsx --fix",
+    "create-adr": "node ./scripts/create-adr"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "gh-pages": "^3.1.0",
+    "typescript": "^4.0.2"
+  }
+}
