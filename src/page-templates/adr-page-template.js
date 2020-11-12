@@ -65,19 +65,20 @@ export default function Template({ data, pageContext }) {
       <div css={{ paddingTop: `calc(${defaultTheme.sizes.header} + ${defaultTheme.spaces[5]} )` }}>
         <Wrapper>
           <SkipToContentDestination />
+
+          {(amendedBy || amend) && (
+            <>
+              <aside>
+                <Amendment by={amendedBy} to={amend} />
+              </aside>
+              <Spacer size={3} />
+            </>
+          )}
+
           <main>
             <h1>{frontmatter.title}</h1>
 
             <AdrMeta author={frontmatter.author} date={frontmatter.date} pullRequest={frontmatter.pullRequest} />
-
-            {(amendedBy || amend) && (
-              <>
-                <Spacer size={5} />
-                <aside>
-                  <Amendment by={amendedBy} to={amend} />
-                </aside>
-              </>
-            )}
 
             <Spacer size={5} />
 
