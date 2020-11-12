@@ -1,10 +1,22 @@
 ![The gatsby-template-adr running with an amended ADR shown](./docs/adrs.png)
 
-A [Gatsby](https://www.gatsbyjs.com/) template to create and manage Architecture Decision Records. Very basic, powerful.
+A [Gatsby](https://www.gatsbyjs.com/) template to create and manage [Architecture Decision Records](https://architecturedecisionrecord.com/). A very basic tool.
 
-## Usage
 
-### Installation
+- [Why this project?](#why-this-project)
+- [Installation](#installation)
+- [Create a new ADR](#create-a-new-adr)
+- [Amending an ADR](#amending-an-adr)
+- [Referencing a Pull Request](#referencing-a-pull-request)
+
+
+## Why this project?
+
+If you've ever wondered why a system ended up the way it is, you were probably lacking context. You were lacking the reasons why the system has changed over time and which decisions have been made to get to that point. ADRs (Architecture decision records) are a way to keep track of these changes.
+
+My personal and ideal workflow would be to reflect with my team about architectural changes and open a pull request with an ADR proposal. The pull request, in this scenario, is the tool that helps manage the status of the ADR. When an ADR proposal gets merged, it means that it has been accepted and can be applied to the real world project.
+
+## Installation
 
 ```sh
 # You need to have the gatsby-cli installed: https://www.gatsbyjs.com/docs/quick-start/
@@ -13,25 +25,25 @@ $ cd my-project-name
 $ yarn dev # or npm run dev
 ```
 
-### Create a new Architecture Decision Record
+## Create a new ADR
 
-There is a command and a tiny script provided with the project to help you create ADRs using the command line. To do so, run the following command in a terminal:
+This template provides a tiny script to help creating ADRs using the command line. To do so, run the following command in a terminal:
 
 ```sh
 $ yarn create-adr
 ```
 
-And answer the questions. The following is a visual representation of the flow:
+And answer the questions:
 
 ![Creating a new ADR using the CLI tool and amending an old one](./docs/adrs-records.gif)
 
-### Amending an ADR
+## Amending an ADR
 
-Remember that ADRs are immutable and shouldn't be modified. Instead of that, we can **amend** ADRS by creating new ones referencing the one we want to modify.
+ADRs are immutable and shouldn't be modified. In order to keep track of modifications, we should **amend** an ADR and reference the ADR that needs to be amended.
 
-If you use the CLI tool, when creating an ADR, it will ask you if the new one should amend a previously created one.
+You can **amend** an ADR using the CLI tool presented in [Create a new ADR](#create-a-new-adr). At some point, the CLI will ask you if you want to amend a previously created ADR.
 
-On the other hand, if you prefer to do it in markdown directly, you can reference the markdown file to amend in the `amend` key of frontmatter, like following:
+If you prefer to amend an ADR directly in Markdown, you can use the `amend` frontmatter key to do so:
 
 ```markdown
 ---
@@ -48,6 +60,21 @@ amend: "1-Choosing-a-frontend-framework.md"
 Some content
 ```
 
-### Referencing Pull Requests
+## Referencing a Pull Request
 
-Pull Requests are great places to debate and challenge an architecture decisions. You can add the pull request link to the frontmatter content to quick track of it over time and understand even better the changes introduced.
+It's possible to reference the pull request originating the ADR using the `pullRequest` frontmatter key:
+
+```markdown
+---
+title: "A very exciting ADR"
+date: 2020-10-12
+slug: "/a-very-exciting-adr"
+author: "Marvin"
+pullRequest: "https://github.com/mfrachet/rn-placeholder/pull/140"
+---
+
+# This is a file that needs to be amended
+
+Some content
+```
+
